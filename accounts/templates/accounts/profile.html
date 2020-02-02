@@ -1,0 +1,17 @@
+{% extends "accounts/base.html" %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h2>Profile</h2>
+<!--    <p>{{ user }}</p>-->
+    <p>firstname :: {{ user.first_name }}</p>
+    <p>lastname :: {{ user.last_name }}</p>
+    <p>email :: {{ user.email }}</p>
+
+</div>
+{% endblock %}
