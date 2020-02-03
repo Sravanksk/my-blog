@@ -11,6 +11,7 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=100, default='')
     website = models.URLField(default='')
     phone = models.IntegerField(default=0)
+    objects = models.Manager()
 
 
 def create_profile(sender, **kwargs):
