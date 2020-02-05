@@ -17,18 +17,39 @@
                 </div>
 
                 <div class="navbar-nav mr-auto">
-                  <ul class="nav navbar-nav">
-                      <li><a class="nav-item nav-link" href="/accounts">Home</a></li>
-                      <li><a class="nav-item nav-link" href="/accounts/profile">Profile</a></li>
-                      <li><a class="nav-item nav-link" href="/accounts/profile/edit">Edit Profile</a></li>
-                      <li><a class="nav-item nav-link" href="/accounts/profile/password">Change Password</a></li>
-                      <li><a class="nav-item nav-link" href="/accounts/reset_password/">Reset Password</a></li>
-                      <li><a class="nav-item nav-link" href="/accounts/logout">Log out</a></li>
-                  </ul>
+
+                    {% if user.is_authenticated %}
+
+                    <ul class="nav navbar-nav">
+                        <li><a class="nav-item nav-link" href="/accounts">Home</a></li>
+                        <li><a class="nav-item nav-link" href="/accounts/profile">Profile</a></li>
+                        <li><a class="nav-item nav-link" href="/accounts/profile/edit">Edit Profile</a></li>
+                        <li><a class="nav-item nav-link" href="/accounts/profile/password">Change Password</a></li>
+                        <li><a class="nav-item nav-link" href="/accounts/reset_password/">Reset Password</a></li>
+                    </ul>
+
+                    {% else %}
+
+                    <ul class="nav navbar-nav">
+                        <li><a class="nav-item nav-link" href="/accounts">Home</a></li>
+                    </ul>
+
+                    {% endif %}
 
                 </div>
 
                 <div class="nav navbar-right">
+
+                    {% if user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a href="/accounts/logout" id="logout" role="button" aria-haspopup="true">
+                          Logout
+                        </a>
+                    </li>
+
+                    {% else %}
+
                     <li class="nav-item">
                         <a href="/accounts/login" id="login" role="button" aria-haspopup="true">
                           Login
@@ -40,6 +61,9 @@
                           Register
                         </a>
                     </li>
+
+                    {% endif %}
+
                 </div>
             </div>
         </nav>
