@@ -21,11 +21,11 @@
                     {% if user.is_authenticated %}
 
                     <ul class="nav navbar-nav">
-                        <li><a class="nav-item nav-link" href="/accounts">Home</a></li>
-                        <li><a class="nav-item nav-link" href="/accounts/profile">Profile</a></li>
-                        <li><a class="nav-item nav-link" href="/accounts/profile/edit">Edit Profile</a></li>
-                        <li><a class="nav-item nav-link" href="/accounts/profile/password">Change Password</a></li>
-                        <li><a class="nav-item nav-link" href="/accounts/reset_password/">Reset Password</a></li>
+                        <li><a class="nav-item nav-link" href="{% url 'home' %}">Home</a></li>
+                        <li><a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a></li>
+                        <li><a class="nav-item nav-link" href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                        <li><a class="nav-item nav-link" href="{% url 'password' %}">Change Password</a></li>
+                        <li><a class="nav-item nav-link" href="{% url 'reset_password' %}">Reset Password</a></li>
                     </ul>
 
                     {% else %}
@@ -43,7 +43,7 @@
                     {% if user.is_authenticated %}
 
                     <li class="nav-item">
-                        <a href="/accounts/logout" id="logout" role="button" aria-haspopup="true">
+                        <a href="{% url 'logout' %}" id="logout" role="button" aria-haspopup="true">
                           Logout
                         </a>
                     </li>
@@ -51,13 +51,13 @@
                     {% else %}
 
                     <li class="nav-item">
-                        <a href="/accounts/login" id="login" role="button" aria-haspopup="true">
+                        <a href="{% url 'login' %}" id="login" role="button" aria-haspopup="true">
                           Login
                         </a>
                     </li>
                     &nbsp;&nbsp;&nbsp;
                     <li class="nav-item">
-                        <a href="/accounts/register" id="register" role="button" aria-haspopup="true">
+                        <a href="{% url 'register' %}" id="register" role="button" aria-haspopup="true">
                           Register
                         </a>
                     </li>
