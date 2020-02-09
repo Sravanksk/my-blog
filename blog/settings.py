@@ -46,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'blog.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -118,7 +119,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
-LOGIN_REDIRECT_URL = '/accounts/'
+LOGIN_REDIRECT_URL = '/accounts'
+
+LOGIN_URL = '/accounts/login'
+LOGIN_EXEMPT_URLS = (
+    r'^accounts/logout/$',
+    r'^accounts/register/$',
+)
 
 # EMAIL_SPECIFIC_SETTINGS
 
