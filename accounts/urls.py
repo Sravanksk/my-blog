@@ -20,8 +20,9 @@ urlpatterns = [
     url(r'^profile/password/$', views.change_password, name="password"),
     url(r'^reset_password/$', PasswordResetView.as_view(template_name='accounts/reset_password.html'), name="reset_password"),
     url(r'^reset_password/done$', PasswordResetDoneView.as_view(template_name='accounts/reset_password_done.html'), name="password_reset_done"),
-    url(r'^reset_password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    url(r'^reset_password/complete$', PasswordResetCompleteView.as_view(), name="password_reset_complete"),
+    url(r'^reset_password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', PasswordResetConfirmView.as_view(template_name='accounts/reset_password_confirm.html'), name='password_reset_confirm'),
+    url(r'^reset_password/complete$', PasswordResetCompleteView.as_view(template_name='accounts/reset_password_complete.html'),
+        name="password_reset_complete"),
 ]
 
 # (?P<uidb64>[0-9A-Za-Z]+)-(?P<token>.+)/
