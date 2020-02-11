@@ -125,6 +125,10 @@ LOGIN_URL = '/accounts/login'
 LOGIN_EXEMPT_URLS = (
     r'^accounts/logout/$',
     r'^accounts/register/$',
+    r'^accounts/reset_password/$',
+    r'^accounts/reset_password/done$',
+    r'^accounts/reset_password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    r'^accounts/reset_password/complete$',
 )
 
 # EMAIL_SPECIFIC_SETTINGS
